@@ -1,7 +1,13 @@
 __pycache__/*
+networks/__pycache__/*
+
+
 weights/bickleydiary_dlinknet34.th
 weights/bickleydiary_dplinknet34.th
 weights/bickleydiary_linknet34.th
 weights/dibco_dlinknet34.th
 weights/dibco_dplinknet34.th
 weights/dibco_linknet34.th
+
+uploaded_images/*
+binarized_images/*

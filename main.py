@@ -17,7 +17,6 @@ if torch.cuda.is_available():
 else:
     device = torch.device('cpu')
 
-
 class TTAFrame():
     def __init__(self, net):
         # Initialize the network and use DataParallel if multiple GPUs are available
@@ -47,8 +46,7 @@ class TTAFrame():
             return self.test_one_img_from_path_4(path)
 
     def test_one_img_from_path_8(self, path):
-        img = np.array(path)  # .transpose(2,0,1)[None]
-        # img = cv2.imread(path)  # .transpose(2,0,1)[None]
+        img = np.array(path)  
         img90 = np.array(np.rot90(img))
         img1 = np.concatenate([img[None], img90[None]])
         img2 = np.array(img1)[:, ::-1]
@@ -76,8 +74,7 @@ class TTAFrame():
         return mask2
 
     def test_one_img_from_path_4(self, path):
-        img = np.array(path)  # .transpose(2,0,1)[None]
-        # img = cv2.imread(path)  # .transpose(2,0,1)[None]
+        img = np.array(path) 
         img90 = np.array(np.rot90(img))
         img1 = np.concatenate([img[None], img90[None]])
         img2 = np.array(img1)[:, ::-1]
@@ -105,8 +102,7 @@ class TTAFrame():
         return mask2
 
     def test_one_img_from_path_2(self, path):
-        img = np.array(path)  # .transpose(2,0,1)[None]
-        # img = cv2.imread(path)  # .transpose(2,0,1)[None]
+        img = np.array(path)  
         img90 = np.array(np.rot90(img))
         img1 = np.concatenate([img[None], img90[None]])
         img2 = np.array(img1)[:, ::-1]
@@ -129,8 +125,7 @@ class TTAFrame():
         return mask3
 
     def test_one_img_from_path_1(self, path):
-        img = np.array(path)  # .transpose(2,0,1)[None]
-        # img = cv2.imread(path)  # .transpose(2,0,1)[None]
+        img = np.array(path)  
         img90 = np.array(np.rot90(img))
         img1 = np.concatenate([img[None], img90[None]])
         img2 = np.array(img1)[:, ::-1]
@@ -193,8 +188,6 @@ if __name__ == "__main__":
         dim1_offset = dim1 % C.TILE_SIZE
         dim2_offset = dim2 % C.TILE_SIZE   
         img = cv2.copyMakeBorder(img, 0, dim1_offset, 0, dim2_offset, cv2.BORDER_CONSTANT, value=(255,255,255))
-
-        cv2.imwrite('image.png', img)
 
         locations, patches = get_patches(img, C.TILE_SIZE, C.TILE_SIZE)
 
