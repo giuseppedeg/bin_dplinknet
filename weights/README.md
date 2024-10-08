@@ -1,0 +1,2 @@
+You can download the pretrained models at this link:
+[https://drive.switch.ch/index.php/s/ot4xYYMJKU7c9an?path=%2Fbinarization_pretained](https://drive.switch.ch/index.php/s/ot4xYYMJKU7c9an?path=%2Fbinarization_pretained)
